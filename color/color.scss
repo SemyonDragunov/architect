@@ -1,0 +1,89 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+$default-color: #ffb600;
+
+.button,
+#{$all-buttons} {
+  background-color: $default-color;
+}
+
+a {
+  &:hover,
+  &:focus {
+    color: $default-color;
+  }
+}
+
+h1 {
+  &.extra {
+    &:before {
+      border-color: $default-color
+    }
+    &:after {
+      border-bottom-color: $default-color;
+    }
+  }
+}
+
+main {
+  h2 {
+    &.title {
+      &:before {
+        color: $default-color;
+      }
+      &:after {
+        color: $default-color;
+      }
+    }
+  }
+}
+
+section.h1-page {
+  h1 {
+    &:before,
+    &:after {
+      border-color: $default-color;
+    }
+  }
+}
+
+#sidebar-first {
+  border-bottom-color: $default-color;
+}
+
+ul.links {
+  a {
+    &.active {
+      color: $default-color;
+    }
+  }
+}
+
+ul.pager {
+  li {
+    a,
+    &.pager-current {
+      border-color: $default-color
+    }
+
+    &.pager-current {
+      background-color: $default-color;
+    }
+  }
+}
+
+ul.tabs.primary {
+  > li {
+    a {
+      &.active {
+        color: $default-color;
+      }
+    }
+  }
+}
+
+.switch {
+  input:checked+label {
+    background-color: $default-color;
+  }
+}

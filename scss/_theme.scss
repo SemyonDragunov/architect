@@ -1,0 +1,664 @@
+// Theme style.
+// ============
+
+body,
+html {
+  font-family: 'Roboto', sans-serif;
+  color: $grey-color-text;
+  font-size: $font-size;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizespeed;
+  margin: 0;
+  padding: 0;
+  line-height: 150%;
+}
+
+hr {
+  border-style: solid;
+  border-color: $grey-color-text;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-width: 1px 0 0;
+  clear: both;
+  height: 0;
+  box-sizing: content-box;
+}
+
+.breadcrumb {
+  list-style: none outside none;
+  margin: 0 0 $base-margin;
+  display: block;
+
+  > li {
+    margin: 0;
+    display: inline-block;
+
+    + li {
+      &:before {
+        content: "/ ";
+        margin: 0 4px;
+      }
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+ul.pager {
+  @include susy-clearfix;
+  line-height: normal;
+  padding: 0;
+  margin: 30px auto;
+  text-align: center;
+  display: block;
+
+  li {
+    display: inline;
+    list-style: outside none none;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      a {
+        background-color: $grey-color-bg;
+      }
+    }
+
+    + li {
+      margin-left: 5px;
+    }
+
+    a,
+    &.pager-current {
+      text-decoration: none !important;
+      border-width: 1px;
+      border-style: solid;
+      padding: 6px;
+    }
+
+    &.pager-current {
+      color: white;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+
+      a {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.sl7-copyright {
+  text-align: right;
+}
+
+.content-center {
+  text-align: center;
+}
+
+.container {
+  @include container(70em);
+  @include gutter(inside);
+}
+
+section.wrapper {
+  @include susy-clearfix;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding-bottom: $base-margin;
+    padding-top: $base-margin;
+  }
+
+  @include susy-breakpoint($tablet-only-breakpoint) {
+    padding-bottom: $base-margin*2;
+    padding-top: $base-margin*2;
+  }
+
+  @include susy-breakpoint($big-screen-up-breakpoint) {
+    padding-bottom: $base-margin*2;
+    padding-top: $base-margin*2;
+  }
+
+  &.dark {
+    color: white !important;
+
+    &.pattern {
+      background: {
+        image: url('../img/dark-pattern.jpg');
+        position: 0 0;
+        repeat: repeat;
+      }
+    }
+  }
+
+  &.grey {
+    background-color: $grey-color-bg;
+  }
+}
+
+// Header and top
+
+header {
+  .header-top {
+    background-color: #F7F7F7;
+    position: relative;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+    padding: 10px 0;
+
+    .container {
+      display: table;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    a[class^="icon-"],
+    a[class*=" icon-"] {
+      margin-right: 20px;
+      color: $base-color-text;
+    }
+
+    .block {
+      display: table;
+      height: 100%;
+
+      .content-wrapper {
+        display: table-cell;
+        vertical-align: middle !important;
+
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .region-action,
+    .region-header {
+      display: table;
+      height: 100%;
+    }
+
+    .region-header {
+      float: left;
+
+      .block {
+        @include to-margin-last();
+        float: left;
+      }
+    }
+
+    .region-action {
+      float: right;
+
+      .block {
+        @include to-margin-last(left);
+        float: right;
+
+        @include susy-breakpoint($phone-only-breakpoint) {
+          float: none;
+          text-align: center;
+        }
+      }
+    }
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      .region-header {
+        @include span(full);
+      }
+      .region-action {
+        @include span(full);
+      }
+    }
+
+    @include susy-breakpoint($tablet-only-breakpoint) {
+      .region-header {
+        @include span(5 of 10 1/10 no-gutters);
+      }
+      .region-action {
+        @include span(5 of 10 1/10 no-gutters last);
+      }
+    }
+
+    @include susy-breakpoint($big-screen-up-breakpoint) {
+      .region-header {
+        @include span(5 of 10 1/10 no-gutters);
+      }
+      .region-action {
+        @include span(5 of 10 1/10 no-gutters last);
+      }
+    }
+  }
+
+  .header-bar {
+    .wrapper {
+      display: table;
+      width: 100%;
+      position: relative;
+    }
+
+    .header-left {
+      display: table-cell;
+      color: $base-color-text;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+      position: relative;
+      padding: 40px 0;
+
+      @include susy-media(max-width 899px) {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: $base-color-text;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .header-right {
+      display: table-cell;
+      float: right;
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        @include span(full);
+        float: left;
+        padding: 0;
+      }
+
+      @include susy-breakpoint($tablet-only-breakpoint) {
+        float: left;
+        padding: $base-margin 0;
+      }
+
+      ul {
+        display: block;
+        padding: 0;
+        margin: 0;
+        list-style: none outside none;
+
+        > li {
+          float: left;
+
+          > a {
+            font-size: 18px;
+            font-weight: 500;
+            padding: 0 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Page.
+
+section.h1-page {
+  padding-bottom: 20px !important;
+  padding-top: 20px !important;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+  }
+
+  h1 {
+    position: relative;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+    @include susy-breakpoint($tablet-only-breakpoint) {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+
+    &:before {
+      top: 36px;
+      content: "";
+      position: absolute;
+      width: 35px;
+      border: {
+        bottom-style: solid;
+        bottom-width: 2px;
+      }
+    }
+
+    &:after {
+      top: 40px;
+      left: 0;
+      content: "";
+      position: absolute;
+      width: 35px;
+      border: {
+        bottom-style: solid;
+        bottom-width: 2px;
+      }
+    }
+
+    &.extra {
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+      position: relative;
+      padding-top: 37px;
+      text-align: center;
+      margin: 5px 0 30px;
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        font-size: 24px;
+      }
+
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 57px;
+        height: 15px;
+        border-style: solid;
+        border-width: 5px 5px 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 57px;
+        border-style: solid;
+        border-width: 0 0 5px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 55px;
+        left: 0;
+        right: 0;
+
+        @include susy-breakpoint($phone-only-breakpoint) {
+          padding-top: 35px;
+        }
+      }
+    }
+  }
+}
+
+section.content {
+  padding-top: $base-padding-big;
+  padding-bottom: $base-padding-big;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @include susy-breakpoint($tablet-only-breakpoint) {
+    padding-top: $base-margin;
+    padding-bottom: $base-margin;
+  }
+}
+
+// Sidebar.
+
+#sidebar-first {
+  @include span(1 of 4 first);
+  background-color: $grey-color-bg;
+  color: $base-color-text;
+  border: {
+    bottom-style: solid;
+    bottom-width: 3px;
+  }
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    @include span(full);
+  }
+
+  .block {
+    border-bottom: 1px solid #EEE;
+    padding: $base-margin;
+
+    .button,
+    #{$all-buttons} {
+      width: 100%;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    list-style: none outside none;
+    padding: 0;
+    margin-bottom: $base-margin;
+  }
+}
+
+main,
+section#helper {
+  @include span(3 of 4 last);
+
+  .no-sidebars & {
+    @include span(full);
+  }
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    @include span(full);
+  }
+
+  h2, h3, h4, h5, h6 {
+    &.title {
+      text-align: center;
+    }
+  }
+}
+
+main {
+  h2 {
+    &.title {
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+      position: relative;
+      padding-top: 37px;
+      text-align: center;
+      margin: 5px 0 30px;
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        font-size: 24px;
+      }
+
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 57px;
+        height: 15px;
+        border-style: solid;
+        border-width: 5px 5px 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 57px;
+        border-style: solid;
+        border-width: 0 0 5px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 15px;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+section.helper {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+ul.tabs.primary {
+  margin: 0 0 $base-margin;
+  list-style: none outside none;
+  display: block;
+
+  > li {
+    margin: 0;
+    display: inline-block;
+
+    + li {
+      &:before {
+        content: "/ ";
+        margin: 0 4px;
+      }
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+// Front page.
+
+body.front {
+  section.content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #sidebar-first {
+    margin-top:$base-padding-big;
+    margin-bottom: $base-padding-big;
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      margin-top: $base-margin;
+      margin-bottom: $base-margin;
+    }
+  }
+}
+
+.region-front {
+  > .block {
+    padding-top: $base-padding-big !important;
+    padding-bottom: $base-padding-big !important;
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      padding-top: $base-margin !important;
+      padding-bottom: $base-margin !important;
+    }
+
+    @include susy-breakpoint($tablet-only-breakpoint) {
+      padding-top: $base-margin !important;
+      padding-bottom: $base-margin !important;
+    }
+  }
+}
+
+// Footer
+
+footer {
+  @include susy-clearfix;
+  display: block;
+  color: white;
+  padding-bottom: $base-margin * 2;
+  padding-top: $base-margin * 2;
+  background: {
+    image: url("../img/dark-pattern.jpg");
+    position: 0 0;
+    repeat: repeat;
+  }
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding-bottom: $base-margin;
+    padding-top: $base-margin;
+  }
+
+  @include susy-breakpoint($tablet-only-breakpoint) {
+    padding-bottom: $base-margin;
+    padding-top: $base-margin;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  a {
+    color: white;
+  }
+
+  // Regions footer.
+
+  .region-footer {
+    @include span(full);
+  }
+  .region-footer-left {
+    @include span(1 of 3);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+  .region-footer-center {
+    @include span(1 of 3);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+  .region-footer-right {
+    @include span(1 of 3 last);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+
+  .region-footer-left,
+  .region-footer-center,
+  .region-footer-right {
+    .block {
+      margin-bottom: $base-margin * 2;
+    }
+  }
+
+  .block {
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
