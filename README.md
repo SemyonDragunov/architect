@@ -11,5 +11,5 @@ Apache License 2.0
 If you need an English version of the module, write to user **@SemyonDragunov**
 
 ***
-![screenshot](screenshot.png)
+![screenshot](screenshot_1.png)
 ![screenshot](architect-regions.png)
